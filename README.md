@@ -22,7 +22,17 @@ This repository is part of a group assignment for the Data Mining and Warehousin
 The primary objective is to apply and showcase a range of data mining and warehousing techniques, from initial data preparation to sophisticated modeling, in an academic context. Each step of the project, represented by the files in this repository, contributes to a comprehensive understanding of the SEMMA methodology applied to the Superstore dataset.
 
 
-## File Directory
+## File Directory Structure
 ```
-
+root
+├── KNIME
+│   ├── DMW-Explore-DBSCAN.rar
+├── Python
+│   ├── DMW-Sample-Featuretools.ipynb
+├── SAS EM
+│   ├── DMW-Explore-<techniques>.xml
+│   ├── DMW-Modeling-<methods>.xml
+├── Talend Data Integration
+├── DMW-Featuretools-Flowchart.png
+├── DMW-Star Schema.png
 ```
