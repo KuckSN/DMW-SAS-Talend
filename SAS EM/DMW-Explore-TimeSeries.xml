@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="90" Y="66" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="Z:\Superstore-with-Featuretools.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="ROLE" AttributeValue="CROSSID"/>
+<DELTA Variable="Imp_OrderDate" AttributeName="ROLE" AttributeValue="INPUT"/>
+<DELTA Variable="ProductName" AttributeName="ROLE" AttributeValue="INPUT"/>
+<DELTA Variable="Sales" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="Segment" AttributeName="ROLE" AttributeValue="CROSSID"/>
+<DELTA Variable="ShipDate" AttributeName="ROLE" AttributeValue="INPUT"/>
+<DELTA Variable="ShipDate" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="ShipDateID" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="VAR1" AttributeName="DROP" AttributeValue="Y"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Category&quot; then do;
+ROLE=&quot;CROSSID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Imp_OrderDate&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ProductName&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sales&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Segment&quot; then do;
+ROLE=&quot;CROSSID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ShipDate&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;Y&quot;;
+end;
+if NAME=&quot;ShipDateID&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;Y&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Category&quot; then do;
+ROLE=&quot;CROSSID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Imp_OrderDate&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ProductName&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sales&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Segment&quot; then do;
+ROLE=&quot;CROSSID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShipDate&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShipDate&quot; then delete;
+if NAME=&quot;ShipDateID&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;VAR1&quot; then delete;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMUTIL.EMMETADATA.CLASS" COMPONENT="Metadata" ID="Meta" X="684" Y="66" DESCRIPTION="Metadata" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="UTILITY" TOOLPREFIX="Meta">
+<PROPERTIES HideRejected="N" AdvancedAdvisor="N" CombineRule="NONE" ComputeStatistics="N" ForceRun="N" RunAction="Train" Component="Metadata">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="OrderDate" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_1" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_2" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_3" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_4" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_5" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_6" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_7" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_8" AttributeName="HIDDEN" AttributeValue="N"/>
+<DELTA Variable="_TS_9" AttributeName="HIDDEN" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<IMPORTSET Type="DATA">
+<Data>
+<Obs USE="Y" PORT="DATA" NODELABEL="TSDP" NODEPORT="TRAIN" LIBNAME="" DATASET="TSDP_TRAIN" ROLE="TRAIN" MODTIME="2020269535.6" COLUMNMETA="TSDP_CMeta_TRAIN" COLUMNMETAMODTIME="2020269535.7" EMINFO="TSDP_EMINFO" EMINFOMODTIME="2020269535" NOBS="71" DATASOURCE=""/>
+<Obs USE="Y" PORT="VALIDATE" NODELABEL="TSDP" NODEPORT="VALIDATE" LIBNAME="" DATASET="TSDP_VALIDATE" ROLE="VALIDATE" MODTIME="2020269535.6" COLUMNMETA="TSDP_CMeta_TRAIN" COLUMNMETAMODTIME="2020269535.7" EMINFO="" EMINFOMODTIME="." NOBS="-1" DATASOURCE=""/>
+<Obs USE="Y" PORT="TEST" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="SCORE" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="TRANSACTION" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="DOCUMENT" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="CLUSMEAN" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="CLUSSTAT" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="ESTIMATE" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="RANK" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="REPORTFIT" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="RULES" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="SCOREDIST" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="TERMS" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="TREE" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+<Obs USE="Y" PORT="VARMAP" NODELABEL="" NODEPORT="" LIBNAME="" DATASET="" ROLE="" MODTIME="." COLUMNMETA="" COLUMNMETAMODTIME="." EMINFO="" EMINFOMODTIME="." NOBS="." DATASOURCE=""/>
+</Data>
+<Metadata>
+<Variable NAME="USE" LABEL="" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="PORT" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="NODELABEL" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="NODEPORT" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LIBNAME" LABEL="" LENGTH="8" FORMAT="" TYPE="C"/>
+<Variable NAME="DATASET" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="ROLE" LABEL="" LENGTH="20" FORMAT="" TYPE="C"/>
+<Variable NAME="MODTIME" LABEL="" LENGTH="8" FORMAT="DATETIME20." TYPE="N"/>
+<Variable NAME="COLUMNMETA" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="COLUMNMETAMODTIME" LABEL="" LENGTH="8" FORMAT="DATETIME20." TYPE="N"/>
+<Variable NAME="EMINFO" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="EMINFOMODTIME" LABEL="" LENGTH="8" FORMAT="DATETIME20." TYPE="N"/>
+<Variable NAME="NOBS" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DATASOURCE" LABEL="" LENGTH="29" FORMAT="" TYPE="C"/>
+</Metadata>
+</IMPORTSET>
+<VARIABLEPROPERTIES_DATA Type="EXTERNAL" Extension="sas">
+<Data><![CDATA[
+*------------------------------------------------------------*;
+* Variable Attributes for DATA;
+*------------------------------------------------------------*;
+if upcase(NAME) = &quot;_TS_01&quot; then NEWROLE=&quot;TARGET&quot;;
+if upcase(NAME) = &quot;_TS_02&quot; then NEWROLE=&quot;TARGET&quot;;
+]]>
+</Data>
+</VARIABLEPROPERTIES_DATA>
+<METACODE_DATA Type="EXTERNAL" Extension="sas">
+<Data><![CDATA[
+*------------------------------------------------------------*;
+* Metadata Changes;
+*------------------------------------------------------------*;
+if upcase(NAME) = &quot;_TS_01&quot; then ROLE=&quot;TARGET&quot;;
+if upcase(NAME) = &quot;_TS_02&quot; then ROLE=&quot;TARGET&quot;;
+]]>
+</Data>
+</METACODE_DATA>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.EMDPART.CLASS" COMPONENT="Partition" ID="Part" X="288" Y="66" DESCRIPTION="Data Partition" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Part">
+<PROPERTIES Method="DEFAULT" TrainPct="70" ValidatePct="30" TestPct="0" RandomSeed="12345" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Partition">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="TSDP" ID="TSDP" X="486" Y="66" DESCRIPTION="TS Data Preparation" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="TSDM" TOOLPREFIX="TSDP">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMTSDM.TSDP.SOURCE" TimeIntervalSel="AUTO" TimeInterval="AUTO" UserLengthCycle="2" LengthCycleSel="DEFAULT" Missing="MISSING" Accumulation="TOTAL" MissingConstant="0.0" Transform="NONE" BoxCoxPara="0.0" ApplyDIF="N" DIF="1" ApplySDIF="N" ExportedDs="SEASON" TransExportedDs="Y" TrendDefaultNPeriods="Y" TrendNPeriods="24" ODSGraphs="NONE" CreateTSID="Y" Transpose="Y" TransByVar="BYTSID" KeepVarRole="N" ZeroMiss="NONE" StartEndTime="DEFAULT" NMaxTSPlot="100" ExportSeasonStat="N" SeasonStat="SUM" ForceRun="N" RunAction="Train" Component="TSDP" TimeOfDay="DEFAULT" MergeClus="N" SaveMergedDs="DEFAULT" LibnameExtDs="WORK" NameExtDs="TS_SEGMENT_DS" ClusterInput="N" Start="DEFAULT" End="DEFAULT" AtomicData="N" InputDataType="DEFAULT">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="City" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="CustomerID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="CustomerName" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_Discount" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_Region" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Imp_OrderDate" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="OrderDateID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate_DAY" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate_MONTH" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate_YEAR" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="PostalCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ProductID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ProductName" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Profit_x" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Profit_y" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Sales" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="Segment" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="ShipDateID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipDate_DAY" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipDate_MONTH" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipDate_YEAR" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipMode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShippingID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="State" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="SubCategory" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TransactionID" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="_dataobs_" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="customers_MAX_transactions_Profi" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="customers_MEAN_transactions_Quan" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="order_dates_MAX_transactions_Pro" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="order_dates_MEAN_transactions_Pr" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="order_dates_STD_transactions_Pro" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="products_MAX_transactions_Profit" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="products_MEAN_transactions_Profi" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="products_STD_transactions_Profit" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ship_dates_MAX_transactions_Prof" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<TIMESTARTANDEND Type="DATA">
+<Data>
+<Obs DATE="19760" _INDEX_="1"/>
+<Obs DATE="19783" _INDEX_="0"/>
+<Obs DATE="19785" _INDEX_="0"/>
+<Obs DATE="19789" _INDEX_="0"/>
+<Obs DATE="19793" _INDEX_="0"/>
+<Obs DATE="19817" _INDEX_="0"/>
+<Obs DATE="19819" _INDEX_="0"/>
+<Obs DATE="19820" _INDEX_="0"/>
+<Obs DATE="19824" _INDEX_="0"/>
+<Obs DATE="19846" _INDEX_="0"/>
+<Obs DATE="19849" _INDEX_="0"/>
+<Obs DATE="19852" _INDEX_="0"/>
+<Obs DATE="19854" _INDEX_="0"/>
+<Obs DATE="19875" _INDEX_="0"/>
+<Obs DATE="19883" _INDEX_="0"/>
+<Obs DATE="19909" _INDEX_="0"/>
+<Obs DATE="19913" _INDEX_="0"/>
+<Obs DATE="19915" _INDEX_="0"/>
+<Obs DATE="19937" _INDEX_="0"/>
+<Obs DATE="19940" _INDEX_="0"/>
+<Obs DATE="19944" _INDEX_="0"/>
+<Obs DATE="19947" _INDEX_="0"/>
+<Obs DATE="19973" _INDEX_="0"/>
+<Obs DATE="19974" _INDEX_="0"/>
+<Obs DATE="19975" _INDEX_="0"/>
+<Obs DATE="19999" _INDEX_="0"/>
+<Obs DATE="20002" _INDEX_="0"/>
+<Obs DATE="20007" _INDEX_="0"/>
+<Obs DATE="20030" _INDEX_="0"/>
+<Obs DATE="20031" _INDEX_="0"/>
+<Obs DATE="20034" _INDEX_="0"/>
+<Obs DATE="20037" _INDEX_="0"/>
+<Obs DATE="20038" _INDEX_="0"/>
+<Obs DATE="20058" _INDEX_="0"/>
+<Obs DATE="20059" _INDEX_="0"/>
+<Obs DATE="20063" _INDEX_="0"/>
+<Obs DATE="20065" _INDEX_="0"/>
+<Obs DATE="20067" _INDEX_="0"/>
+<Obs DATE="20069" _INDEX_="0"/>
+<Obs DATE="20090" _INDEX_="0"/>
+<Obs DATE="20122" _INDEX_="0"/>
+<Obs DATE="20123" _INDEX_="0"/>
+<Obs DATE="20125" _INDEX_="0"/>
+<Obs DATE="20127" _INDEX_="0"/>
+<Obs DATE="20149" _INDEX_="0"/>
+<Obs DATE="20152" _INDEX_="0"/>
+<Obs DATE="20153" _INDEX_="0"/>
+<Obs DATE="20154" _INDEX_="0"/>
+<Obs DATE="20156" _INDEX_="0"/>
+<Obs DATE="20159" _INDEX_="0"/>
+<Obs DATE="20180" _INDEX_="0"/>
+<Obs DATE="20181" _INDEX_="0"/>
+<Obs DATE="20183" _INDEX_="0"/>
+<Obs DATE="20184" _INDEX_="0"/>
+<Obs DATE="20188" _INDEX_="0"/>
+<Obs DATE="20189" _INDEX_="0"/>
+<Obs DATE="20211" _INDEX_="0"/>
+<Obs DATE="20216" _INDEX_="0"/>
+<Obs DATE="20217" _INDEX_="0"/>
+<Obs DATE="20241" _INDEX_="0"/>
+<Obs DATE="20244" _INDEX_="0"/>
+<Obs DATE="20246" _INDEX_="0"/>
+<Obs DATE="20247" _INDEX_="0"/>
+<Obs DATE="20248" _INDEX_="0"/>
+<Obs DATE="20271" _INDEX_="0"/>
+<Obs DATE="20274" _INDEX_="0"/>
+<Obs DATE="20275" _INDEX_="0"/>
+<Obs DATE="20276" _INDEX_="0"/>
+<Obs DATE="20278" _INDEX_="0"/>
+<Obs DATE="20279" _INDEX_="0"/>
+<Obs DATE="20280" _INDEX_="0"/>
+<Obs DATE="20303" _INDEX_="0"/>
+<Obs DATE="20305" _INDEX_="0"/>
+<Obs DATE="20307" _INDEX_="0"/>
+<Obs DATE="20308" _INDEX_="0"/>
+<Obs DATE="20309" _INDEX_="0"/>
+<Obs DATE="20311" _INDEX_="0"/>
+<Obs DATE="20312" _INDEX_="0"/>
+<Obs DATE="20332" _INDEX_="0"/>
+<Obs DATE="20333" _INDEX_="0"/>
+<Obs DATE="20334" _INDEX_="0"/>
+<Obs DATE="20335" _INDEX_="0"/>
+<Obs DATE="20336" _INDEX_="0"/>
+<Obs DATE="20337" _INDEX_="0"/>
+<Obs DATE="20338" _INDEX_="0"/>
+<Obs DATE="20341" _INDEX_="0"/>
+<Obs DATE="20342" _INDEX_="0"/>
+<Obs DATE="20362" _INDEX_="0"/>
+<Obs DATE="20363" _INDEX_="0"/>
+<Obs DATE="20364" _INDEX_="0"/>
+<Obs DATE="20365" _INDEX_="0"/>
+<Obs DATE="20366" _INDEX_="0"/>
+<Obs DATE="20368" _INDEX_="0"/>
+<Obs DATE="20369" _INDEX_="0"/>
+<Obs DATE="20373" _INDEX_="0"/>
+<Obs DATE="20393" _INDEX_="0"/>
+<Obs DATE="20394" _INDEX_="0"/>
+<Obs DATE="20395" _INDEX_="0"/>
+<Obs DATE="20398" _INDEX_="0"/>
+<Obs DATE="20399" _INDEX_="0"/>
+<Obs DATE="20402" _INDEX_="0"/>
+<Obs DATE="20403" _INDEX_="0"/>
+<Obs DATE="20423" _INDEX_="0"/>
+<Obs DATE="20425" _INDEX_="0"/>
+<Obs DATE="20426" _INDEX_="0"/>
+<Obs DATE="20428" _INDEX_="0"/>
+<Obs DATE="20430" _INDEX_="0"/>
+<Obs DATE="20432" _INDEX_="0"/>
+<Obs DATE="20433" _INDEX_="0"/>
+<Obs DATE="20455" _INDEX_="0"/>
+<Obs DATE="20461" _INDEX_="0"/>
+<Obs DATE="20464" _INDEX_="0"/>
+<Obs DATE="20485" _INDEX_="0"/>
+<Obs DATE="20490" _INDEX_="0"/>
+<Obs DATE="20491" _INDEX_="0"/>
+<Obs DATE="20494" _INDEX_="0"/>
+<Obs DATE="20514" _INDEX_="0"/>
+<Obs DATE="20516" _INDEX_="0"/>
+<Obs DATE="20517" _INDEX_="0"/>
+<Obs DATE="20519" _INDEX_="0"/>
+<Obs DATE="20520" _INDEX_="0"/>
+<Obs DATE="20521" _INDEX_="0"/>
+<Obs DATE="20523" _INDEX_="0"/>
+<Obs DATE="20524" _INDEX_="0"/>
+<Obs DATE="20545" _INDEX_="0"/>
+<Obs DATE="20551" _INDEX_="0"/>
+<Obs DATE="20552" _INDEX_="0"/>
+<Obs DATE="20554" _INDEX_="0"/>
+<Obs DATE="20556" _INDEX_="0"/>
+<Obs DATE="20577" _INDEX_="0"/>
+<Obs DATE="20579" _INDEX_="0"/>
+<Obs DATE="20580" _INDEX_="0"/>
+<Obs DATE="20586" _INDEX_="0"/>
+<Obs DATE="20606" _INDEX_="0"/>
+<Obs DATE="20607" _INDEX_="0"/>
+<Obs DATE="20608" _INDEX_="0"/>
+<Obs DATE="20612" _INDEX_="0"/>
+<Obs DATE="20617" _INDEX_="0"/>
+<Obs DATE="20636" _INDEX_="0"/>
+<Obs DATE="20639" _INDEX_="0"/>
+<Obs DATE="20641" _INDEX_="0"/>
+<Obs DATE="20643" _INDEX_="0"/>
+<Obs DATE="20644" _INDEX_="0"/>
+<Obs DATE="20647" _INDEX_="0"/>
+<Obs DATE="20667" _INDEX_="0"/>
+<Obs DATE="20669" _INDEX_="0"/>
+<Obs DATE="20670" _INDEX_="0"/>
+<Obs DATE="20675" _INDEX_="0"/>
+<Obs DATE="20678" _INDEX_="0"/>
+<Obs DATE="20698" _INDEX_="0"/>
+<Obs DATE="20699" _INDEX_="0"/>
+<Obs DATE="20700" _INDEX_="0"/>
+<Obs DATE="20702" _INDEX_="0"/>
+<Obs DATE="20703" _INDEX_="0"/>
+<Obs DATE="20706" _INDEX_="0"/>
+<Obs DATE="20707" _INDEX_="0"/>
+<Obs DATE="20709" _INDEX_="0"/>
+<Obs DATE="20728" _INDEX_="0"/>
+<Obs DATE="20729" _INDEX_="0"/>
+<Obs DATE="20730" _INDEX_="0"/>
+<Obs DATE="20733" _INDEX_="0"/>
+<Obs DATE="20734" _INDEX_="0"/>
+<Obs DATE="20736" _INDEX_="0"/>
+<Obs DATE="20737" _INDEX_="0"/>
+<Obs DATE="20759" _INDEX_="0"/>
+<Obs DATE="20760" _INDEX_="0"/>
+<Obs DATE="20761" _INDEX_="0"/>
+<Obs DATE="20762" _INDEX_="0"/>
+<Obs DATE="20765" _INDEX_="0"/>
+<Obs DATE="20766" _INDEX_="0"/>
+<Obs DATE="20767" _INDEX_="0"/>
+<Obs DATE="20768" _INDEX_="0"/>
+<Obs DATE="20769" _INDEX_="0"/>
+<Obs DATE="20789" _INDEX_="0"/>
+<Obs DATE="20790" _INDEX_="0"/>
+<Obs DATE="20791" _INDEX_="0"/>
+<Obs DATE="20792" _INDEX_="0"/>
+<Obs DATE="20793" _INDEX_="0"/>
+<Obs DATE="20794" _INDEX_="0"/>
+<Obs DATE="20795" _INDEX_="0"/>
+<Obs DATE="20796" _INDEX_="0"/>
+<Obs DATE="20797" _INDEX_="0"/>
+<Obs DATE="20798" _INDEX_="0"/>
+<Obs DATE="20799" _INDEX_="0"/>
+<Obs DATE="20800" _INDEX_="0"/>
+<Obs DATE="20822" _INDEX_="0"/>
+<Obs DATE="20824" _INDEX_="0"/>
+<Obs DATE="20826" _INDEX_="0"/>
+<Obs DATE="20827" _INDEX_="0"/>
+<Obs DATE="20829" _INDEX_="0"/>
+<Obs DATE="20831" _INDEX_="0"/>
+<Obs DATE="20855" _INDEX_="0"/>
+<Obs DATE="20859" _INDEX_="0"/>
+<Obs DATE="20879" _INDEX_="0"/>
+<Obs DATE="20880" _INDEX_="0"/>
+<Obs DATE="20881" _INDEX_="0"/>
+<Obs DATE="20882" _INDEX_="0"/>
+<Obs DATE="20883" _INDEX_="0"/>
+<Obs DATE="20885" _INDEX_="0"/>
+<Obs DATE="20886" _INDEX_="0"/>
+<Obs DATE="20888" _INDEX_="0"/>
+<Obs DATE="20910" _INDEX_="0"/>
+<Obs DATE="20911" _INDEX_="0"/>
+<Obs DATE="20912" _INDEX_="0"/>
+<Obs DATE="20913" _INDEX_="0"/>
+<Obs DATE="20915" _INDEX_="0"/>
+<Obs DATE="20916" _INDEX_="0"/>
+<Obs DATE="20918" _INDEX_="0"/>
+<Obs DATE="20940" _INDEX_="0"/>
+<Obs DATE="20943" _INDEX_="0"/>
+<Obs DATE="20944" _INDEX_="0"/>
+<Obs DATE="20945" _INDEX_="0"/>
+<Obs DATE="20946" _INDEX_="0"/>
+<Obs DATE="20947" _INDEX_="0"/>
+<Obs DATE="20948" _INDEX_="0"/>
+<Obs DATE="20949" _INDEX_="0"/>
+<Obs DATE="20950" _INDEX_="0"/>
+<Obs DATE="20951" _INDEX_="0"/>
+<Obs DATE="20971" _INDEX_="0"/>
+<Obs DATE="20972" _INDEX_="0"/>
+<Obs DATE="20973" _INDEX_="0"/>
+<Obs DATE="20974" _INDEX_="0"/>
+<Obs DATE="20975" _INDEX_="0"/>
+<Obs DATE="20976" _INDEX_="0"/>
+<Obs DATE="20978" _INDEX_="0"/>
+<Obs DATE="20980" _INDEX_="0"/>
+<Obs DATE="20981" _INDEX_="0"/>
+<Obs DATE="20982" _INDEX_="0"/>
+<Obs DATE="21001" _INDEX_="0"/>
+<Obs DATE="21002" _INDEX_="0"/>
+<Obs DATE="21003" _INDEX_="0"/>
+<Obs DATE="21004" _INDEX_="0"/>
+<Obs DATE="21006" _INDEX_="0"/>
+<Obs DATE="21008" _INDEX_="0"/>
+<Obs DATE="21009" _INDEX_="0"/>
+<Obs DATE="21010" _INDEX_="0"/>
+<Obs DATE="21011" _INDEX_="0"/>
+<Obs DATE="21032" _INDEX_="0"/>
+<Obs DATE="21033" _INDEX_="0"/>
+<Obs DATE="21034" _INDEX_="0"/>
+<Obs DATE="21037" _INDEX_="0"/>
+<Obs DATE="21038" _INDEX_="0"/>
+<Obs DATE="21040" _INDEX_="0"/>
+<Obs DATE="21042" _INDEX_="0"/>
+<Obs DATE="21064" _INDEX_="0"/>
+<Obs DATE="21065" _INDEX_="0"/>
+<Obs DATE="21066" _INDEX_="0"/>
+<Obs DATE="21067" _INDEX_="0"/>
+<Obs DATE="21069" _INDEX_="0"/>
+<Obs DATE="21070" _INDEX_="0"/>
+<Obs DATE="21071" _INDEX_="0"/>
+<Obs DATE="21072" _INDEX_="0"/>
+<Obs DATE="21073" _INDEX_="0"/>
+<Obs DATE="21093" _INDEX_="0"/>
+<Obs DATE="21094" _INDEX_="0"/>
+<Obs DATE="21095" _INDEX_="0"/>
+<Obs DATE="21098" _INDEX_="0"/>
+<Obs DATE="21099" _INDEX_="0"/>
+<Obs DATE="21100" _INDEX_="0"/>
+<Obs DATE="21101" _INDEX_="0"/>
+<Obs DATE="21103" _INDEX_="0"/>
+<Obs DATE="21104" _INDEX_="0"/>
+<Obs DATE="21124" _INDEX_="0"/>
+<Obs DATE="21125" _INDEX_="0"/>
+<Obs DATE="21126" _INDEX_="0"/>
+<Obs DATE="21127" _INDEX_="0"/>
+<Obs DATE="21129" _INDEX_="0"/>
+<Obs DATE="21130" _INDEX_="0"/>
+<Obs DATE="21131" _INDEX_="0"/>
+<Obs DATE="21132" _INDEX_="0"/>
+<Obs DATE="21133" _INDEX_="0"/>
+<Obs DATE="21134" _INDEX_="0"/>
+<Obs DATE="21135" _INDEX_="0"/>
+<Obs DATE="21154" _INDEX_="0"/>
+<Obs DATE="21155" _INDEX_="0"/>
+<Obs DATE="21156" _INDEX_="0"/>
+<Obs DATE="21157" _INDEX_="0"/>
+<Obs DATE="21158" _INDEX_="0"/>
+<Obs DATE="21159" _INDEX_="0"/>
+<Obs DATE="21160" _INDEX_="0"/>
+<Obs DATE="21161" _INDEX_="0"/>
+<Obs DATE="21164" _INDEX_="0"/>
+<Obs DATE="21185" _INDEX_="0"/>
+<Obs DATE="21186" _INDEX_="0"/>
+<Obs DATE="21187" _INDEX_="0"/>
+<Obs DATE="21191" _INDEX_="0"/>
+<Obs DATE="21196" _INDEX_="0"/>
+<Obs DATE="21220" _INDEX_="0"/>
+<Obs DATE="21221" _INDEX_="0"/>
+<Obs DATE="21223" _INDEX_="0"/>
+<Obs DATE="21244" _INDEX_="0"/>
+<Obs DATE="21247" _INDEX_="0"/>
+<Obs DATE="21248" _INDEX_="0"/>
+<Obs DATE="21249" _INDEX_="0"/>
+<Obs DATE="21251" _INDEX_="0"/>
+<Obs DATE="21252" _INDEX_="0"/>
+<Obs DATE="21254" _INDEX_="0"/>
+<Obs DATE="21255" _INDEX_="0"/>
+<Obs DATE="21277" _INDEX_="0"/>
+<Obs DATE="21282" _INDEX_="0"/>
+<Obs DATE="21285" _INDEX_="0"/>
+<Obs DATE="21305" _INDEX_="0"/>
+<Obs DATE="21308" _INDEX_="0"/>
+<Obs DATE="21310" _INDEX_="0"/>
+<Obs DATE="21312" _INDEX_="0"/>
+<Obs DATE="21337" _INDEX_="0"/>
+<Obs DATE="21341" _INDEX_="0"/>
+<Obs DATE="21342" _INDEX_="0"/>
+<Obs DATE="21366" _INDEX_="0"/>
+<Obs DATE="21368" _INDEX_="0"/>
+<Obs DATE="21371" _INDEX_="0"/>
+<Obs DATE="21373" _INDEX_="0"/>
+<Obs DATE="21374" _INDEX_="0"/>
+<Obs DATE="21397" _INDEX_="0"/>
+<Obs DATE="21398" _INDEX_="0"/>
+<Obs DATE="21399" _INDEX_="0"/>
+<Obs DATE="21401" _INDEX_="0"/>
+<Obs DATE="21402" _INDEX_="0"/>
+<Obs DATE="21405" _INDEX_="0"/>
+<Obs DATE="21428" _INDEX_="0"/>
+<Obs DATE="21429" _INDEX_="0"/>
+<Obs DATE="21430" _INDEX_="0"/>
+<Obs DATE="21431" _INDEX_="0"/>
+<Obs DATE="21432" _INDEX_="0"/>
+<Obs DATE="21433" _INDEX_="0"/>
+<Obs DATE="21434" _INDEX_="0"/>
+<Obs DATE="21435" _INDEX_="0"/>
+<Obs DATE="21438" _INDEX_="0"/>
+<Obs DATE="21439" _INDEX_="0"/>
+<Obs DATE="21460" _INDEX_="0"/>
+<Obs DATE="21461" _INDEX_="0"/>
+<Obs DATE="21464" _INDEX_="0"/>
+<Obs DATE="21465" _INDEX_="0"/>
+<Obs DATE="21466" _INDEX_="0"/>
+<Obs DATE="21467" _INDEX_="0"/>
+<Obs DATE="21489" _INDEX_="0"/>
+<Obs DATE="21490" _INDEX_="0"/>
+<Obs DATE="21492" _INDEX_="0"/>
+<Obs DATE="21493" _INDEX_="0"/>
+<Obs DATE="21494" _INDEX_="0"/>
+<Obs DATE="21495" _INDEX_="0"/>
+<Obs DATE="21497" _INDEX_="0"/>
+<Obs DATE="21498" _INDEX_="0"/>
+<Obs DATE="21499" _INDEX_="0"/>
+<Obs DATE="21500" _INDEX_="0"/>
+<Obs DATE="21520" _INDEX_="0"/>
+<Obs DATE="21521" _INDEX_="0"/>
+<Obs DATE="21522" _INDEX_="0"/>
+<Obs DATE="21523" _INDEX_="0"/>
+<Obs DATE="21524" _INDEX_="0"/>
+<Obs DATE="21525" _INDEX_="0"/>
+<Obs DATE="21528" _INDEX_="0"/>
+<Obs DATE="21530" _INDEX_="0"/>
+<Obs DATE="21551" _INDEX_="0"/>
+<Obs DATE="21554" _INDEX_="0"/>
+<Obs DATE="21555" _INDEX_="0"/>
+<Obs DATE="21582" _INDEX_="0"/>
+<Obs DATE="21610" _INDEX_="0"/>
+<Obs DATE="21612" _INDEX_="0"/>
+<Obs DATE="21614" _INDEX_="0"/>
+<Obs DATE="21671" _INDEX_="0"/>
+<Obs DATE="21672" _INDEX_="0"/>
+<Obs DATE="21675" _INDEX_="0"/>
+<Obs DATE="21702" _INDEX_="0"/>
+<Obs DATE="21705" _INDEX_="0"/>
+<Obs DATE="21706" _INDEX_="0"/>
+<Obs DATE="21732" _INDEX_="0"/>
+<Obs DATE="21733" _INDEX_="0"/>
+<Obs DATE="21735" _INDEX_="0"/>
+<Obs DATE="21736" _INDEX_="0"/>
+<Obs DATE="21763" _INDEX_="0"/>
+<Obs DATE="21765" _INDEX_="0"/>
+<Obs DATE="21768" _INDEX_="0"/>
+<Obs DATE="21793" _INDEX_="0"/>
+<Obs DATE="21794" _INDEX_="0"/>
+<Obs DATE="21797" _INDEX_="0"/>
+<Obs DATE="21825" _INDEX_="0"/>
+<Obs DATE="21828" _INDEX_="0"/>
+<Obs DATE="21854" _INDEX_="0"/>
+<Obs DATE="21857" _INDEX_="0"/>
+<Obs DATE="21859" _INDEX_="0"/>
+<Obs DATE="21884" _INDEX_="0"/>
+<Obs DATE="21887" _INDEX_="0"/>
+<Obs DATE="21888" _INDEX_="0"/>
+<Obs DATE="21889" _INDEX_="2"/>
+</Data>
+<Metadata>
+<Variable NAME="DATE" LABEL="" LENGTH="8" FORMAT="YYMMDD10." TYPE="N"/>
+<Variable NAME="_INDEX_" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</TIMESTARTANDEND>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="TSSIM" ID="TSSIM" X="882" Y="66" DESCRIPTION="TS Similarity" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="TSDM" TOOLPREFIX="TSSIM">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMTSDM.TSSIM.SOURCE" TimeInterval="AUTO" Accumulation="TOTAL" Measure="SQRDEV" Missing="ZERO" Slide="NONE" Normalization="STANDARD" Scale="NONE" NumSimPlot="5" SimPlotPreference="MOST" Compress="NONE" CompGlobalAbs="0" CompGlobalPct="0" CompLocalAbs="0" CompLocalPct="0" Expand="NONE" ExpGlobalAbs="0" ExpGlobalPct="0" ExpLocalAbs="0" ExpLocalPct="0" Clustering="DEFAULT" OutputDS="DEFAULT" IncTargetInDist="Y" NCluster="3" ForceRun="N" RunAction="Train" Component="TSSIM" LastRunMessage="Must use one interval timeid variable.">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="FIMPORT" TO="Part"/>
+<CONNECTION FROM="Part" TO="TSDP"/>
+<CONNECTION FROM="TSDP" TO="Meta"/>
+<CONNECTION FROM="Meta" TO="TSSIM"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>
