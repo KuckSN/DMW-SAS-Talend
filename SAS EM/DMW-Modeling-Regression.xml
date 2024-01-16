@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMEXPL.ASSOCIATE.CLASS" COMPONENT="Association" ID="Assoc" X="264" Y="165" DESCRIPTION="Association" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="Assoc">
+<PROPERTIES ItemCount="4" AssocSupportType="PERCENT" SeqSupportType="PERCENT" SupportA="." MinConf="10" PctsupA="5" PctsupS="2" SupportS="." ChainCount="3" ConsolTime="0" MaxDur="." Criterion="DEFAULT" NumRules="200" NumTransposeRules="200" MaxItems="100000" ExportIdRule="Y" Recommendation="N" ForceRun="N" RunAction="Train" Component="Association">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes/>
+<EmFileProperties>
+<RULESFILTER Type="DATA">
+<Data/>
+<Metadata/>
+</RULESFILTER>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMUTIL.CONTROLPOINT.CLASS" COMPONENT="ControlPoint" ID="CNTRL" X="1650" Y="165" DESCRIPTION="Control Point" DIAGRAMID="_ROOT_" PARENTID="">
+<PROPERTIES/>
+</NODE>
+<NODE CLASS="SASHELP.EMUTIL.CONTROLPOINT.CLASS" COMPONENT="ControlPoint" ID="CNTRL2" X="1254" Y="165" DESCRIPTION="Control Point" DIAGRAMID="_ROOT_" PARENTID="">
+<PROPERTIES/>
+</NODE>
+<NODE CLASS="SASHELP.EMMDFY.EMDROP.CLASS" COMPONENT="Drop" ID="Drop" X="858" Y="165" DESCRIPTION="Drop" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Drop">
+<PROPERTIES DropFromTable="N" DropHidden="Y" DropInput="N" DropTarget="N" DropRejected="Y" DropAssess="N" DropPredict="N" DropFreq="N" DropClassification="N" DropResidual="N" DropOther="Y" ForceRun="N" RunAction="Train" Component="Drop">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="264" Y="264" DESCRIPTION="Train" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.FIMPORT.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="Y" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="C:\Users\User\OneDrive - Universiti Malaya\Sem 5\WIE3007 DW\Superstore-with-Featuretools.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes>
+<DELTA Variable="CustomerID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="CustomerName" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="OrderDateID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="OrderDate_DAY" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="OrderDate_MONTH" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="OrderDate_YEAR" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="PostalCode" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="ProductID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="ProductName" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Sales" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="ShipDateID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="ShipDateID" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="ShipDate_DAY" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="ShipDate_MONTH" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="ShipDate_YEAR" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="ShippingID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="ShippingID" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+<DELTA Variable="TransactionID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="TransactionID" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;CustomerName&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;OrderDateID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;OrderDate_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;OrderDate_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;OrderDate_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;PostalCode&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ProductID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ProductName&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sales&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ShipDateID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ShipDate_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ShipDate_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ShipDate_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;ShippingID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;TransactionID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;CustomerName&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;OrderDateID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;OrderDate_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;OrderDate_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;OrderDate_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;PostalCode&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ProductID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ProductName&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sales&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShipDateID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShipDate_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShipDate_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShipDate_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;ShippingID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;TransactionID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT2" X="66" Y="165" DESCRIPTION="Transaction" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.FIMPORT.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRANSACTION" ForceRun="N" Summarize="Y" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="C:\Users\User\OneDrive - Universiti Malaya\Sem 5\WIE3007 DW\Superstore_Ori.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes>
+<DELTA Variable="Customer_ID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Customer_Name" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Order_DAY" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Order_MONTH" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Order_YEAR" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Product_Name" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Ship_DAY" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Ship_MONTH" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Ship_YEAR" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+<DELTA Variable="Sub_Category" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="VAR1" AttributeName="ROLE" AttributeValue="REJECTED"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Customer_ID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Customer_Name&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Order_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Order_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Order_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Product_Name&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Ship_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Ship_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Ship_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sub_Category&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Customer_ID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Customer_Name&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Order_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Order_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Order_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Product_Name&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Ship_DAY&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Ship_MONTH&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Ship_YEAR&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sub_Category&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;VAR1&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMDFY.EMIMPUTE.CLASS" COMPONENT="Impute" ID="Impt" X="660" Y="165" DESCRIPTION="Impute" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Impt">
+<PROPERTIES MethodInterval="MEDIAN" MethodClass="COUNT" MethodTargetInterval="NONE" MethodTargetClass="NONE" ABWTuning="9" AHUBERTuning="1.5" AWAVETuning="6.2831853072" SpacingProportion="90" DefaultChar="" DefaultNum="." RandomSeed="42" Normalize="Y" ImputeNoMissing="N" MaxPctMissing="50" ValidateTestMissing="N" DistributionMissing="N" LeafSize="5" Maxbranch="2" Maxdepth="6" MinCatSize="5" Nrules="5" Nsurrs="2" Splitsize="." Indicator="NONE" IndicatorRole="REJECTED" ReplaceVariable="N" HideVariable="Y" IndicatorSource="IMPUTED" ForceRun="N" RunAction="Train" Component="Impute">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMASSMT.ASSESS.CLASS" COMPONENT="ModelCompare" ID="MdlComp" X="1848" Y="165" DESCRIPTION="Model Comparison" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="ASSESS" TOOLPREFIX="MdlComp">
+<PROPERTIES NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6" ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01" AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="DEFAULT" intervalViyaCriteria="DEFAULT" classViyaCriteria="DEFAULT" SelectionTable="VALIDATE" SelectionCriteria="_MSE_" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N" TargetName="Sales" ModelId="Reg3" ModelDescription="Regression (Underfit)" ModelCriteria="Valid: Mean Square Error" ForceRun="N" RunAction="Train" Component="ModelCompare" StatisticUsed="_VMSE_" TargetLabel="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMUTIL.EMMERGE.CLASS" COMPONENT="Merge" ID="Merge" X="462" Y="165" DESCRIPTION="Merge" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="UTILITY" TOOLPREFIX="Merge">
+<PROPERTIES MergeType="ONETOONE" OverwriteVariables="N" OverwritePredicted="N" OverwriteResidual="N" OverwriteClassification="N" OverwriteAssess="N" OverwriteSegment="N" ForceRun="N" RunAction="Train" Component="Merge">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.EMDPART.CLASS" COMPONENT="Partition" ID="Part" X="1056" Y="165" DESCRIPTION="Data Partition" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Part">
+<PROPERTIES Method="DEFAULT" TrainPct="70" ValidatePct="30" TestPct="0" RandomSeed="12345" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Partition">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg" X="1452" Y="264" DESCRIPTION="Regression (Overfit)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="Y" TwoFactor="N" Polynomial="Y" PolynomialDegree="3" Terms="N" Error="NORMAL" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="NONE" SelectionCriterion="VERROR" SelectionDefault="N" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="Y" MaxIterations="0" MaxFunctionCalls="." MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmTargetAttributes>
+<Sales>
+<DecData Table="EMWS3.Reg_Sales_DD">
+<Data>
+<Obs SALES="1.08"/>
+<Obs SALES="4416.174"/>
+<Obs SALES="220.27686"/>
+</Data>
+<Metadata>
+<Variable NAME="Sales" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS3.Reg_Sales_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="Sales" LABEL="" FORMAT="BEST12.0" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="1.08" MEAN="220.27686" MAX="4416.174"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Sales" LABEL="Predicted: Sales" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Sales" LABEL="Residual: Sales" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</Sales>
+</EmTargetAttributes>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg2" X="1452" Y="165" DESCRIPTION="Regression (Best fit)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="Y" TwoFactor="N" Polynomial="N" PolynomialDegree="2" Terms="N" Error="NORMAL" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="NONE" SelectionCriterion="VERROR" SelectionDefault="N" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="Y" MaxIterations="0" MaxFunctionCalls="." MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmTargetAttributes>
+<Sales>
+<DecData Table="EMWS3.Reg2_Sales_DD">
+<Data>
+<Obs SALES="1.08"/>
+<Obs SALES="4416.174"/>
+<Obs SALES="220.27686"/>
+</Data>
+<Metadata>
+<Variable NAME="Sales" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS3.Reg2_Sales_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="Sales" LABEL="" FORMAT="BEST12.0" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="1.08" MEAN="220.27686" MAX="4416.174"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Sales" LABEL="Predicted: Sales" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Sales" LABEL="Residual: Sales" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</Sales>
+</EmTargetAttributes>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg3" X="1452" Y="66" DESCRIPTION="Regression (Underfit)" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="N" TwoFactor="N" Polynomial="N" PolynomialDegree="2" Terms="N" Error="NORMAL" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="NONE" SelectionCriterion="VERROR" SelectionDefault="N" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="N" MaxIterations="1" MaxFunctionCalls="1" MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmTargetAttributes>
+<Sales>
+<DecData Table="EMWS3.Reg3_Sales_DD">
+<Data>
+<Obs SALES="1.08"/>
+<Obs SALES="4416.174"/>
+<Obs SALES="220.27686"/>
+</Data>
+<Metadata>
+<Variable NAME="Sales" LABEL="" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS3.Reg3_Sales_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="Sales" LABEL="" FORMAT="BEST12.0" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="1.08" MEAN="220.27686" MAX="4416.174"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Sales" LABEL="Predicted: Sales" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Sales" LABEL="Residual: Sales" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</Sales>
+</EmTargetAttributes>
+<EmVariableAttributes>
+<DELTA Variable="Category" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="City" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_Discount" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE1" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE10" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE100" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE101" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE102" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE103" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE104" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE105" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE106" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE107" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE108" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE109" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE11" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE110" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE111" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE112" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE113" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE114" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE115" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE116" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE117" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE118" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE119" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE12" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE120" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE121" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE122" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE123" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE124" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE125" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE126" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE127" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE128" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE129" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE13" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE130" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE131" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE132" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE133" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE134" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE135" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE136" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE137" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE138" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE139" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE14" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE140" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE141" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE142" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE143" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE144" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE145" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE146" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE147" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE148" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE149" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE15" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE150" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE151" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE152" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE153" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE154" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE155" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE156" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE157" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE158" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE159" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE16" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE160" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE161" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE162" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE163" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE164" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE165" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE166" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE167" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE168" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE169" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE17" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE170" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE171" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE172" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE173" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE174" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE175" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE176" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE177" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE178" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE179" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE18" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE180" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE181" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE182" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE183" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE184" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE185" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE186" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE187" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE188" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE189" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE19" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE190" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE191" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE192" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE193" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE194" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE195" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE196" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE197" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE198" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE199" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE2" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE20" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE200" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE21" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE22" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE23" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE24" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE25" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE26" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE27" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE28" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE29" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE3" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE30" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE31" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE32" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE33" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE34" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE35" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE36" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE37" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE38" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE39" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE4" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE40" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE41" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE42" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE43" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE44" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE45" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE46" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE47" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE48" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE49" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE5" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE50" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE51" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE52" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE53" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE54" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE55" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE56" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE57" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE58" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE59" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE6" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE60" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE61" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE62" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE63" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE64" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE65" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE66" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE67" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE68" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE69" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE7" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE70" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE71" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE72" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE73" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE74" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE75" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE76" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE77" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE78" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE79" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE8" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE80" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE81" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE82" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE83" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE84" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE85" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE86" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE87" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE88" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE89" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE9" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE90" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE91" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE92" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE93" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE94" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE95" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE96" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE97" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE98" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_RULE99" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="IMP_Region" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate_DAY" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate_MONTH" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="OrderDate_YEAR" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="PostalCode" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Profit" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Quantity" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipDate_DAY" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipDate_MONTH" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipDate_YEAR" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ShipMode" AttributeName="USE" AttributeValue="Y"/>
+<DELTA Variable="State" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="SubCategory" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="customers_MAX_transactions_Profi" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="customers_MEAN_transactions_Quan" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="order_dates_MAX_transactions_Pro" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="order_dates_MEAN_transactions_Pr" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="order_dates_STD_transactions_Pro" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="products_MAX_transactions_Profit" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="products_MEAN_transactions_Profi" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="products_STD_transactions_Profit" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ship_dates_MAX_transactions_Prof" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="FIMPORT2" TO="Assoc"/>
+<CONNECTION FROM="Assoc" TO="Merge"/>
+<CONNECTION FROM="Reg" TO="CNTRL"/>
+<CONNECTION FROM="CNTRL" TO="MdlComp"/>
+<CONNECTION FROM="FIMPORT" TO="Merge"/>
+<CONNECTION FROM="Reg2" TO="CNTRL"/>
+<CONNECTION FROM="Reg3" TO="CNTRL"/>
+<CONNECTION FROM="Drop" TO="Part"/>
+<CONNECTION FROM="Impt" TO="Drop"/>
+<CONNECTION FROM="Merge" TO="Impt"/>
+<CONNECTION FROM="CNTRL2" TO="Reg3"/>
+<CONNECTION FROM="CNTRL2" TO="Reg2"/>
+<CONNECTION FROM="CNTRL2" TO="Reg"/>
+<CONNECTION FROM="Part" TO="CNTRL2"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>
