@@ -12,7 +12,7 @@ This repository is part of a group assignment for the Data Mining and Warehousin
 &nbsp;&nbsp;&nbsp;&nbsp;• Sequential Rule Mining.  
 &nbsp;&nbsp;&nbsp;&nbsp;• Time Series Clustering.  
 &nbsp;&nbsp;&nbsp;&nbsp;• DBSCAN clustering using `KNIME`.  
-5. **Modeling"" with `SAS Enterprise Miner` 📈:  
+5. **Modeling** with `SAS Enterprise Miner` 📈:  
 &nbsp;&nbsp;&nbsp;&nbsp;• Decision Tree and Sequential Rule Mining.  
 &nbsp;&nbsp;&nbsp;&nbsp;• Gradient Boosting and Association Rule Mining.  
 &nbsp;&nbsp;&nbsp;&nbsp;• Random Forest and Association Rule Mining.  
